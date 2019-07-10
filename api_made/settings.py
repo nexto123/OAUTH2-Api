@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #installed apps
     'mob_app',
     'users',
+    'crispy_forms',
 ]
 
 #directing django towards user api
@@ -133,3 +134,6 @@ STATIC_URL = '/static/'
 #redirecting users after auth
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+#crispy templates
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
