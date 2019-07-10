@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="text-center">
+    <br><br>
+    <h1 >Things are looking pretty good here! <span class="text-success">{{ user.username }}</span></h1>
+     {% else %}
+    <p>Do you wanna <a href="{% url 'signup' %}">sign up? </a></p>
+
+{% endif %}
+
+</div>
+{% endblock %}

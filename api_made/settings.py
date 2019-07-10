@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'users',
 ]
 
+#directing django towards user api
 AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
@@ -129,6 +130,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#redirecting users after auth
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
