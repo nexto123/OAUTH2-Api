@@ -40,11 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    #oauth2 API
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     #installed apps
-    'mob_app',
-    'users',
-    'crispy_forms',
+     'mob_app',
+     'users',
+     'crispy_forms',
 ]
 
 #directing django towards user api
@@ -131,9 +138,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
+#crispy templates
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
 #redirecting users after auth
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-#crispy templates
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+#auth backends
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False

@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include('mob_app.urls')),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
 ]
