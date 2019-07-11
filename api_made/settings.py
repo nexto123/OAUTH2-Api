@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'mob_app',
+    'users',
+    'crispy_forms',
 
     #oauth2 API
     'allauth',
@@ -48,10 +51,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 
-    #installed apps
-     'mob_app',
-     'users',
-     'crispy_forms',
 ]
 
 #directing django towards user api

@@ -1,5 +1,7 @@
 <!doctype html>
 {% load static %}
+{% load account %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,9 +27,9 @@
     </ul>
 
      {% if user.is_authenticated %}
-     <span class="navbar-link"><a href="{% url 'logout' %}">Log out</a></span>
+     <span class="navbar-link"><a href="{% url 'account_logout' %}">Log out</a></span>
       {% else %}
-        <span class="navbar-link"><a href="{% url 'login' %}">Log in</a></span>
+        <span class="navbar-link"><a href="{% url 'account_login' %}">Log in</a></span>
       {% endif %}
 
   </div>
