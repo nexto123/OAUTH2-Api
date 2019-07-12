@@ -1,9 +1,26 @@
 body{
-    background-color: rgba(255, 255, 255, 0.67);
+    background-color: rgba(251, 251, 255, 0.67);
+    font-weight: 100;
 }
 
 .login-box{
     max-width: 320px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(229, 229, 229, 0.2);
+    position: relative;
+    top: 40px;
+}
+.log-text{
+    color: lightgrey;
+}
+.btn-primary{
+    width: 100%;
+    min-width: 250px;
+}
+
+.signup-box{
+    max-width: 420px;
     margin: auto;
     padding: 40px;
     background: rgba(229, 229, 229, 0.2);

@@ -7,10 +7,16 @@
 {% if user.is_authenticated %}
 <div class="text-center">
     <br><br>
-    <h1 >Things are looking pretty good here! <span class="text-success">{{ user.username }}</span></h1>
+    <maquee><h1 >Things are looking pretty good here! <span class="text-success">{{ user.username }}</span></h1></maquee>
      {% else %}
-    <p>Do you wanna <a href="{% url 'signup' %}">sign up? </a></p>
+    <br><br>
+    <div class="text-center">
+    <h1 class="text-center text-grey">Do you wanna <a href="{% url 'signup' %}">sign up? </a></h1>
 
+    <br>
+        <p class="text-grey">How about signing in with your google account. <strong>You data is safe, we promise!!</strong> </p>
+
+    </div>
 {% endif %}
 
 </div>
