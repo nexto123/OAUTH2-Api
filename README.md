@@ -1,5 +1,17 @@
-<h1>hello
+# oAuth2 API Authentication App
 
 
-<h5>Ghana
-<li>users
+
+
+
+### Security 
+
+All-auth comes with it's own Hashing sytem
+
+As an extra security measure on top of what the standard Django password reset token generator is already facilitating, 
+allauth now adds the user email address and password to the hash such that whenever the user’s email address changes the token is invalidated.
+
+### Adapter
+
+From allauth/account/adapter.py we  can further clean our passwords and override the default setting.
+We can now then set our own parameters for passwords and 

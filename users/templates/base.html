@@ -26,7 +26,6 @@
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-
      {% if user.is_authenticated %}
      <span class="navbar-link"><a href="{% url 'account_logout' %}">Log out</a></span>
       {% else %}

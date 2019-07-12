@@ -144,8 +144,6 @@ STATICFILES_DIRS = (
 )
 
 
-
-
 #crispy templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -161,6 +159,10 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
+
+#This is an extra check for passwords to maeet the right standards
+ACCOUNT_ADAPTER = 'users.adapter.MyAccountAdapter'
+
 
 #This allows us to use both username and email to login
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"

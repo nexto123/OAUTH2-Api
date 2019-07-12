@@ -1,5 +1,7 @@
 {% extends "account/base.html" %}
 {% load crispy_forms_tags %}
+{% load account socialaccount %}
+
 
 {% load static %}
 
@@ -14,6 +16,8 @@
 <h1>Sign up</h1>
 
 <p>Already have an account? Then please <a href="{% url 'account_login' %}">sign in</a>.</p>
+    <p class="text-center">Or </p>
+ <a class="" href="{% provider_login_url 'google' %}"><img src="{% static 'img/google.svg' %}">Sign up with Google</a>
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
