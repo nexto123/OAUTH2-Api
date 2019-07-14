@@ -1,7 +1,7 @@
 # oAuth2 API Authentication App
 
 
-
+[![Build Status](https://travis-ci.org/nexto123/ouath2-api.svg?branch=master)](https://travis-ci.org/nexto123/ouath2-api)
 
 
 ### Security 
