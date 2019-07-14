@@ -18,6 +18,6 @@ class MyAccountAdapter(DefaultAccountAdapter):
             return password
         else:
             raise forms.ValidationError(("Password must be a minimum of 6 "
-                                          "characters. & must start with Capital a letter..").format(min_length))
+                                          "characters. & must start with a Capital letter..").format(min_length))
 
 
