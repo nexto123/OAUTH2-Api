@@ -19,7 +19,7 @@ easily and safely.
 Once an application is registered you can use the client ID, client secret and redirect URL in the authorization flow. 
 I will highlight the processes we will undergo and offer a bit of insight into them.
 
-#### Processes
+#### Project Structure
 
 * Start a basic Django project
 * Add an app for the homepage
@@ -29,10 +29,14 @@ I will highlight the processes we will undergo and offer a bit of insight into t
 * get Google credentials(We will use )
 * update templates
 
+*To keep things simple we will assume that the first four parts have 
+implemented & we are starting with our oauth2 processes.*
+
 
 ## Used Extensions for App Dependencies
 
-pip is a package-management system used to install and manage software packages written in Python. These dependencies are installed to assist some features that might not come with Django. In our app we will use this list:
+ pip is a package-management system used to install and manage software packages written in Python.
+ These dependencies are installed to assist some features that might not come with Django. In our app we will use this list:
 
 * allauth - Third party adds-on to the regular Django authentication/user system and has view/forms etc for some administrative tasks.
 * Django==2.2 - Python Framework
@@ -42,12 +46,71 @@ pip is a package-management system used to install and manage software packages 
 * dj-database-url==0.5.0 - DATABASE_URL environment variable
 * gunicorn==19.9.0 - Web Server Gateway Interface 
 
-### Django all-auth
+### Django all-auth setup
+
+As we are aiming to only demonstrate the use of a user authentication system 
+we will extend a navbar from our base file only.
+
+1. ``pip install django django-allauth``
+
+2. 
+
+```
+    INSTALLED_APPS = [
+    
+    # it's very important not to forget adding this line
+    'django.contrib.sites', # new
+    
+     # add these apps after installation
+    'allauth',
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'allauth.socialaccount.providers.google', # new
+
+    'users',  
+]
+
+```
+3. in our project file we will add this.
+```
+    # our_project/settings.py
+    AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+        "allauth.account.auth_backends.AuthenticationBackend",
+    )
+    
+    SITE_ID = 1
+    
+    ACCOUNT_EMAIL_REQUIRED = True
+    ACCOUNT_USERNAME_REQUIRED = False
+
+```
+4. In our project URL file we will add these
+```
+# our_project/urls.py
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('', include('app.urls')),
+    # Django Admin
+    path('admin/', admin.site.urls),
+    # User management
+    path('users/', include('users.urls')),
+    path('accounts/', include('allauth.urls')), # new
+]
+
+```
+5. ```(venv) $ python manage.py migrate```
+
+
+
 
 
 ## Database setup
 
-Django comes with a lot of features right out of the box, and SQLite database is one of it. But for more sophisticated functionality and durability, it becomes necessary to migrate your database to a more grounded one like MySQL or PostgreSQL.
+Django comes with a lot of features right out of the box, and SQLite database is one of it. But for more sophisticated 
+functionality and durability, it becomes necessary to migrate your database to a more grounded one like MySQL or PostgreSQL.
 To use Heroku Postgres;
 
 1. First, create an account on [Heroku](www.heroku.com)
@@ -62,7 +125,7 @@ To use Heroku Postgres;
 
 To deploy our app to a hosting platform like Heroku we'll have to meet these few requirements.
 
-*lets first push the project to our GitHub repo*
+ _*Lets first push the project to our GitHub repo*_
 
 * create a new repository;
 * first assign a repository name on GitHub since that's what I'm using.
@@ -93,4 +156,21 @@ $ echo web: python app.py > Procfile
  To disable static ``heroku config:set DISABLE_COLLECTSTATIC=1``.
 
 * Finally run the code ``git push heroku master``
+   
+## Mail Service
+
+Mailgun.
+
+check out documentation using [mailgun](https://documentation.mailgun.com/en/latest/)
+
+
+## Versioning
+
+ Git
+
+
+## Author
+
+Ernest Bruce Brown
+   
    
