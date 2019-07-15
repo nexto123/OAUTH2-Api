@@ -1,4 +1,4 @@
-# oAuth2 System
+# OAuth2 App
 
 
 [![Build Status](https://travis-ci.org/nexto123/ouath2-api.svg?branch=master)](https://travis-ci.org/nexto123/ouath2-api)
@@ -29,11 +29,13 @@ I will highlight the processes we will undergo and offer a bit of insight into t
 * get Google credentials(We will use )
 * update templates
 
-*To keep things simple we will assume that the first four parts have 
+(live app here)[]
+
+*To keep things simple we will assume that the first four parts have been 
 implemented & we are starting with our oauth2 processes.*
 
 
-## Used Extensions for App Dependencies
+## Used Extensions for the App Dependencies
 
  pip is a package-management system used to install and manage software packages written in Python.
  These dependencies are installed to assist some features that might not come with Django. In our app we will use this list:
@@ -48,8 +50,20 @@ implemented & we are starting with our oauth2 processes.*
 
 ### Django all-auth setup(oAuth API)
 
-As we are aiming to only demonstrate the use of a user authentication system 
-we will shall mainly focus on the 
+    As we are aiming to only demonstrate the use of a user authentication system 
+    we will limit the components of our app to only the navbars and forms.
+
+We will use these components from [all-auth](https://django-allauth.readthedocs.io/en/latest/configuration.html)
+
+* ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS (=True)
+* AUTHENTICATION_BACKENDS 
+* ACCOUNT_AUTHENTICATION_METHOD = Specifies the login method to use.
+* ACCOUNT_EMAIL_REQUIRED = True
+* ACCOUNT_USERNAME_REQUIRED = True
+* ACCOUNT_ADAPTER (=”allauth.account.adapter.DefaultAccountAdapter”)
+* admin.site.login = login_required(admin.site.login)
+
+
 
 1. ``pip install django django-allauth``
 
@@ -176,13 +190,15 @@ $ echo web: python app.py > Procfile
 ```
 * Inside your bash enter ``heroku login`` and follow the prompts. Perform ``git add --all`` and `` git commit``.
 
-* Finally let's collectstatic as we will host our static files on whitenoise.
+* Finally let's collectstatic as we will host our static files on whitenoise [whitenoise](http://whitenoise.evans.io/en/stable/).
+
  To disable static ``heroku config:set DISABLE_COLLECTSTATIC=1``.
 
 * Finally run the code ``git push heroku master``
    
 ## Mail Service
 
+The email verification will only work for reapproved users as it's only for trials.
 Mailgun.
 
 check out documentation using [mailgun](https://documentation.mailgun.com/en/latest/)
