@@ -1,7 +1,7 @@
 # OAuth2 App
 
 
-[![Build Status](https://travis-ci.org/nexto123/ouath2-api.svg?branch=master)](https://travis-ci.org/nexto123/ouath2-api)
+[![Build Status](https://travis-ci.org/nexto123/OAUTH2-Api.svg?branch=master)](https://travis-ci.org/nexto123/OAUTH2-Api)
 
 
 ## Introduction
