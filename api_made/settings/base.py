@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','oauth2-user.herokuapp.com']
+ALLOWED_HOSTS = ['oauth2-user.herokuapp.com']
 
 
 # Application definition
@@ -194,7 +194,7 @@ ACCOUNT_USERNAME_REQUIRED = True
 
 
 EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = '587'
+EMAIL_PORT = '465'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
