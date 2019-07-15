@@ -46,10 +46,10 @@ implemented & we are starting with our oauth2 processes.*
 * dj-database-url==0.5.0 - DATABASE_URL environment variable
 * gunicorn==19.9.0 - Web Server Gateway Interface 
 
-### Django all-auth setup
+### Django all-auth setup(oAuth API)
 
 As we are aiming to only demonstrate the use of a user authentication system 
-we will extend a navbar from our base file only.
+we will shall mainly focus on the 
 
 1. ``pip install django django-allauth``
 
@@ -103,8 +103,32 @@ urlpatterns = [
 ```
 5. ```(venv) $ python manage.py migrate```
 
+6. Google credentials
 
+    To allow users to log in with their Gmail credentials we need to register our new website with Google. Go to the 
+    Google Developers Console and enter the name of your new project. We must grab the Client id & the Secerete Key and voila.
+    
+7. Update Templates
+    
+    The last step is to update our templates file. We need to load socialaccount which comes from Allauth. And our named URLs 
+    are slightly different as well: we add an account_ in front of the existing logout, signup, 
+    login links. Finally we add a provider link for Google.   
+    
+ ```
+     #<!-- templates/home.html -->
+    {% load socialaccount %}
 
+```
+
+8. Now try everything out. Go back to the homepage at http://127.0.0.1:8000/. 
+You’re probably logged in so click on the “Log out” link.
+
+9. Now navigate to the “Users” section of the admin at http://127.0.0.1:8000/admin and 
+we can see both our new user and his/her email address. We can add additional fields to CustomUser;
+we can add additional 3rd party logins; and we can override Allauth default templates.
+
+One more thing that’s nice to do is require email confirmation for new accounts. 
+Django does not have this capability but Allauth does.
 
 
 ## Database setup
@@ -125,7 +149,7 @@ To use Heroku Postgres;
 
 To deploy our app to a hosting platform like Heroku we'll have to meet these few requirements.
 
- _*Lets first push the project to our GitHub repo*_
+ *Lets push the project to our GitHub repo*
 
 * create a new repository;
 * first assign a repository name on GitHub since that's what I'm using.
