@@ -29,11 +29,15 @@ I will highlight the processes we will undergo and offer a bit of insight into t
 * get Google credentials(We will use )
 * update templates
 
-(live app here)[https://oauth2-user.herokuapp.com/]
+[live app here](https://oauth2-user.herokuapp.com/)
 
 *To keep things simple we will assume that the first four parts have been 
 implemented & we are starting with our oauth2 processes.*
 
+## Error Alert
+
+Server Error(500): This error will be seen during registration. The email server being used is only for test purposes and 
+email to sign up must be added to validated lists.
 
 ## Used Extensions for the App Dependencies
 
