@@ -29,7 +29,7 @@ I will highlight the processes we will undergo and offer a bit of insight into t
 * get Google credentials(We will use )
 * update templates
 
-(live app here)[]
+(live app here)[https://oauth2-user.herokuapp.com/]
 
 *To keep things simple we will assume that the first four parts have been 
 implemented & we are starting with our oauth2 processes.*
