@@ -191,11 +191,25 @@ SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 
-
-
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = '587'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+
+
+
+
+
+#
+# SEND_GRID_API_KEY = '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'
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_PORT = '587'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'nexto123'
+# # EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
