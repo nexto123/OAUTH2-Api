@@ -196,14 +196,6 @@ $ echo web: python app.py > Procfile
 
 * Finally run the code ``git push heroku master``
    
-## Mail Service
-
-The email verification will only work for reapproved users as it's only for trials.
-Mailgun.
-
-check out documentation using [mailgun](https://documentation.mailgun.com/en/latest/)
-
-
 ## Versioning
 
  Git
